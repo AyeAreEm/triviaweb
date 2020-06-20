@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>History Trivia</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ca3757;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        button:focus {
+            outline: none;
+            background-color: rgb(187, 187, 187);
+        }
+
+        #score {
+            position: fixed;
+            right: 20%;
+            color: white;
+        }
+
+        .info {
+            background-color: rgb(255, 255, 255);
+            width: 50%;
+            height: 40%;
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px black;
+        }
+
+        .answer {
+            background-color: rgb(160, 160, 160);
+            border: none;
+            border-radius: 5px;
+            width: 10%;
+            height: 25px;
+        }
+
+        .viewscore {
+            background-color: rgb(51, 150, 189);
+            border: none;
+            border-radius: 5px;
+            width: 10%;
+            height: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="score"></h1>
+
+    <div class="info">
+        <h1 style="text-align: left; font-size: 50px;">History Trivia</h1>
+        <h2 style="text-align: left;">There will be buttons to click for the correct answer. Once you have clicked the correct button, it will be disable but the wrong answer can still be pressed. Each correct answer adds points to your score and each wrong answer takes away from your score.</h2>
+    </div>
+
+    <div class="info">
+        <h2>When did WW2 happen?</h2>
+        <h3>a. Nov. 6, 1940</h3>
+        <h3>b. Jan. 18, 1938</h3>
+        <h3>c. Aug. 10, 1921</h3>
+        <h3>d. Sep. 1, 1939</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="correct1" onclick="chkf()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>What was the first language ever invented?</h2>
+        <h3>a. Ancient Egypt</h3>
+        <h3>b. Ancient Roman</h3>
+        <h3>c. Ancient Chinese</h3>
+        <h3>d. Ancient Hebrew</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="correct2" onclick="chks()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>How did Cleopatra die?</h2>
+        <h3>a. Suicide</h3>
+        <h3>b. Death by Medjay (ancient egyptian police)</h3>
+        <h3>c. Julius Ceaser killed her</h3>
+        <h3>d. Old age</h3>
+        <button class="answer" id="correct3" onclick="chkt()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>When was currency invented?</h2>
+        <h3>a. 3,530 B.C.</h3>
+        <h3>b. 7,506 B.C.</h3>
+        <h3>c. 5,000 B.C.</h3>
+        <h3>d. 1254</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="correct4" onclick="chkfr()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>True or False: The Chinese invented tea</h2>
+        <button class="answer" id="correct5" onclick="chkfv()">True</button>
+        <button class="answer" id="wrong" onclick="wrong()">False</button>
+    </div>
+
+    <div class="info">
+        <h2>True or False: Hitlers' live was spared in WW1</h2>
+        <button class="answer" id="correct6" onclick="chksx()">True</button>
+        <button class="answer" id="wrong" onclick="wrong()">False</button>
+    </div>
+
+    <div class="info">
+        <h2>True or False: Leonardo Divinci invented the tank</h2>
+        <button class="answer" id="correct7" onclick="chksv()">True</button>
+        <button class="answer" id="wrong" onclick="wrong()">False</button>
+    </div>
+
+    <div class="info">
+        <h2>Who was the other two astronaut that came with Neil Armstrong to the moon?</h2>
+        <h3>a. John F. Kennedy and Richard Nixon</h3>
+        <h3>b. Peter Richman and Ben Connelly</h3>
+        <h3>c. Noah Clint and Nelson Beltran</h3>
+        <h3>d. Buzz Aldrin and Michael Collins </h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="correct8" onclick="chke()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>What was the name of the mission when Neil Armstrong when to the moon?</h2>
+        <h3>a. Apollo 13</h3>
+        <h3>b. Apollo 16</h3>
+        <h3>c. Apollo 11</h3>
+        <h3>d. Apollo 10</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="correct9" onclick="chkn()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>When was the first nuke used?</h2>
+        <h3>a. Sept. 8, 1944</h3>
+        <h3>b. Aug. 6, 1945</h3>
+        <h3>c. Dec. 13, 1940</h3>
+        <h3>d. July 24, 143</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="correct10" onclick="chktn()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div><br><br>
+
+    <input class="viewscore" type="button" onclick="final()" value="Done">
+
+    <div style="margin-top: 50%;" class="info" id="viewscore">
+        <h1>You Got <span id="finalscore"></span> out of 10</h1>
+        <h2 id="finalwords"></h2>
+    </div>
+
+    <script>
+        const showscore = document.querySelector("#score");
+        const finalscore = document.querySelector("#finalscore");
+        const finalwords = document.querySelector("#finalwords");
+        let score = 0;
+        showscore.innerHTML = score;
+
+        function chkf() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct1").disabled = true;
+        }
+
+        function chks() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct2").disabled = true;
+        }
+
+        function chkt() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct3").disabled = true;
+        }
+
+        function chkfr() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct4").disabled = true;
+        }
+
+        function chkfv() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct5").disabled = true;
+        }
+
+        function chksx() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct6").disabled = true;
+        }
+
+        function chksv() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct7").disabled = true;
+        }
+
+        function chke() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct8").disabled = true;
+        }
+
+        function chkn() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct9").disabled = true;
+        }
+
+        function chktn() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct10").disabled = true;
+        }
+
+        function wrong() {
+            var wrong = document.getElementById("wrong");
+
+            score--;
+            showscore.innerHTML = score;
+
+            if (score === -1) {
+                score = 0;
+                showscore.innerHTML = score;
+            }
+        }
+
+        function final() {
+            location.href = "history.html#viewscore";
+            finalscore.innerHTML = score;
+
+            if (score <= 4) {
+                finalwords.innerHTML = "you know nothing about history man, learn more stuff."
+            }
+
+            else if (score == 5) {
+                finalwords.innerHTML = "huh, average. Your like all American teens or Flat Earthers."
+            }
+
+            else if (score == 6) {
+                finalwords.innerHTML = "yo, you are a normal human."
+            }
+
+            else if (score == 7) {
+                finalwords.innerHTML = "yo, you are a normal human."
+            }
+
+            else if (score == 8) {
+                finalwords.innerHTML = "yo, you are a normal human."
+            }
+
+            else if (score == 9) {
+                finalwords.innerHTML = "yo, you are a normal human."
+            }
+
+            else if (score == 10) {
+                finalwords.innerHTML = "Ok, no normal human can get this all right. U crazy."
+            }
+        }
+    </script>
+</body>
+</html>

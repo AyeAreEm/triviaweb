@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Trivia</title>
+
+    <style>
+        body {
+            background-color: #ca3757;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        input[type=button] {
+            background-color: rgb(160, 160, 160);
+            border: none;
+            border-radius: 5px;
+            font-size: 40px;
+            width: 40%;
+            height: 100px;
+        }
+
+        input[type=button]:focus {
+            background-color: rgb(187, 187, 187);
+            outline: none;
+        }
+
+        .info {
+            background-color: rgb(255, 255, 255);
+            width: 50%;
+            height: 40%;
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h1 style="text-align: left; font-size: 50px;">Pick Your Trivia Genre</h1>
+    </div>
+
+    <div class="info"><br>
+        <input type="button" value="Coding" onclick="location.href = 'comp.html'">&nbsp;
+        <input type="button" value="Astronomy" onclick="location.href = 'astron.html'"><br><br>
+        <input type="button" value="History" onclick="location.href = 'history.html'">&nbsp;
+        <input type="button" value="General" onclick="location.href = 'funnies.html'"><br><br>
+    </div>
+</body>
+</html>

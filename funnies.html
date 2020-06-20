@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <title>Fun Fact Trivia</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ca3757;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        button:focus {
+            outline: none;
+            background-color: rgb(187, 187, 187);
+        }
+
+        #score {
+            position: fixed;
+            right: 20%;
+            color: white;
+        }
+
+        .info {
+            background-color: rgb(255, 255, 255);
+            width: 50%;
+            height: 40%;
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px black;
+        }
+
+        .answer {
+            background-color: rgb(160, 160, 160);
+            border: none;
+            border-radius: 5px;
+            width: 10%;
+            height: 25px;
+        }
+
+        .viewscore {
+            background-color: rgb(51, 150, 189);
+            border: none;
+            border-radius: 5px;
+            width: 10%;
+            height: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="score"></h1>
+
+    <div class="info">
+        <h1 style="text-align: left; font-size: 50px;">General Trivia</h1>
+        <h2 style="text-align: left;">There will be buttons to click for the correct answer. Once you have clicked the correct button, it will be disable but the wrong answer can still be pressed. Each correct answer adds points to your score and each wrong answer takes away from your score.</h2>
+    </div>
+
+    <div class="info">
+        <h2>What type of place is Australia?</h2>
+        <h3>a. Island</h3>
+        <h3>b. Country</h3>
+        <h3>c. Continent</h3>
+        <h3>d. All of the above</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="correct1" onclick="chkf()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>What is the fastest time for solving a Rubik's Cube?</h2>
+        <h3>a. 1 minute</h3>
+        <h3>b. 5 minutes</h3>
+        <h3>c. 3 seconds</h3>
+        <h3>d. 15 seconds</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="correct2" onclick="chks()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>What is the most popular video game?</h2>
+        <h3>a. GTA V</h3>
+        <h3>b. Fortnite</h3>
+        <h3>c. Rainbow Six Seige</h3>
+        <h3>d. Minecraft</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="correct3" onclick="chkt()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>How many planets are in our solar system?</h2>
+        <h3>a. 12</h3>
+        <h3>b. 8</h3>
+        <h3>c. 9</h3>
+        <h3>d. 6</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="correct4" onclick="chkfr()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>True or False: The first computer mouse was made out of wood</h2>
+        <button class="answer" id="wrong" onclick="wrong()">True</button>
+        <button class="answer" id="correct5" onclick="chkfv()">False</button>
+    </div>
+
+    <div class="info">
+        <h2>What is the percentage of people who wear glasses as of 2019?</h2>
+        <h3>a. 30%</h3>
+        <h3>b. 58%</h3>
+        <h3>c. 24%</h3>
+        <h3>d. 64%</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="correct6" onclick="chksx()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>What was the first search engine?</h2>
+        <h3>a. Archie</h3>
+        <h3>b. Google</h3>
+        <h3>c. Yahoo</h3>
+        <h3>d. DuckDuckGo</h3>
+        <h3>e. Bing</h3>
+        <h3>f. Yandex</h3>
+        <button class="answer" id="correct7" onclick="chksv()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+        <button class="answer" id="wrong" onclick="wrong()">E</button>
+        <button class="answer" id="wrong" onclick="wrong()">F</button>
+    </div>
+
+    <div class="info">
+        <h2>True or False: Prawns can see more colours than humans</h2>
+        <button class="answer" id="correct8" onclick="chke()">True</button>
+        <button class="answer" id="wrong" onclick="wrong()">False</button>
+    </div>
+
+    <div class="info">
+        <h2>Which country makes the most coffee?</h2>
+        <h3>a. USA</h3>
+        <h3>b. China</h3>
+        <h3>c. Brazil</h3>
+        <h3>d. Russia</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="correct9" onclick="chkn()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>True or False: Dogs can't see colours</h2>
+        <button class="answer" id="wrong" onclick="wrong()">True</button>
+        <button class="answer" id="correct10" onclick="chktn()">False</button>
+    </div><br><br>
+
+    <input class="viewscore" type="button" onclick="final()" value="Done">
+
+    <div style="margin-top: 50%;" class="info" id="viewscore">
+        <h1>You Got <span id="finalscore"></span> out of 10</h1>
+        <h2 id="finalwords"></h2>
+    </div>
+
+    <script>
+        const showscore = document.querySelector("#score");
+        const finalscore = document.querySelector("#finalscore");
+        const finalwords = document.querySelector("#finalwords");
+        let score = 0;
+        showscore.innerHTML = score;
+
+        function chkf() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct1").disabled = true;
+        }
+
+        function chks() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct2").disabled = true;
+        }
+
+        function chkt() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct3").disabled = true;
+        }
+
+        function chkfr() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct4").disabled = true;
+        }
+
+        function chkfv() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct5").disabled = true;
+        }
+
+        function chksx() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct6").disabled = true;
+        }
+
+        function chksv() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct7").disabled = true;
+        }
+
+        function chke() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct8").disabled = true;
+        }
+
+        function chkn() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct9").disabled = true;
+        }
+
+        function chktn() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct10").disabled = true;
+        }
+
+        function wrong() {
+            var wrong = document.getElementById("wrong");
+
+            score--;
+            showscore.innerHTML = score;
+
+            if (score === -1) {
+                score = 0;
+                showscore.innerHTML = score;
+            }
+        }
+
+        function final() {
+            location.href = "funnies.html#viewscore";
+            finalscore.innerHTML = score;
+
+            if (score <= 4) {
+                finalwords.innerHTML = "you are not a human, you are a lizard person. just no."
+            }
+
+            else if (score == 5) {
+                finalwords.innerHTML = "your either a dum human or a smart lizard person."
+            }
+
+            else if (score == 6) {
+                finalwords.innerHTML = "you are actually a normal human"
+            }
+
+            else if (score == 7) {
+                finalwords.innerHTML = "you are actually a normal human"
+            }
+
+            else if (score == 8) {
+                finalwords.innerHTML = "you are actually a normal human"
+            }
+
+            else if (score == 9) {
+                finalwords.innerHTML = "you are actually a normal human"
+            }
+
+            else if (score === 10) {
+                finalwords.innerHTML = "Much human."
+            }
+        }
+    </script>
+</body>
+</html>

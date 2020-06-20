@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atronomy Trivia</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ca3757;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        button:focus {
+            outline: none;
+            background-color: rgb(187, 187, 187);
+        }
+
+        #score {
+            position: fixed;
+            right: 20%;
+            color: white;
+        }
+
+        .info {
+            background-color: rgb(255, 255, 255);
+            width: 50%;
+            height: 40%;
+            margin: auto;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px black;
+        }
+
+        .answer {
+            background-color: rgb(160, 160, 160);
+            border: none;
+            border-radius: 5px;
+            width: 10%;
+            height: 25px;
+        }
+
+        .viewscore {
+            background-color: rgb(51, 150, 189);
+            border: none;
+            border-radius: 5px;
+            width: 10%;
+            height: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="score"></h1>
+
+    <div class="info">
+        <h1 style="text-align: left; font-size: 50px;">Astronomy Trivia</h1>
+        <h2 style="text-align: left;">There will be buttons to click for the correct answer. Once you have clicked the correct button, it will be disable but the wrong answer can still be pressed. Each correct answer adds points to your score and each wrong answer takes away from your score.</h2>
+    </div>
+
+    <div class="info">
+        <h2>True or False: A long time ago, Earth hit another planet and got bigger because of it</h2>
+        <button class="answer" id="correct1" onclick="chkf()">True</button>
+        <button class="answer" id="wrong" onclick="wrong()">False</button>
+    </div>
+
+    <div class="info">
+        <h2>What is a Black Hole?</h2>
+        <h3>a. It's something that not even light can escape from</h3>
+        <h3>b. It's an area in space with no stars</h3>
+        <h3>c. It's the opposite of a star, it doesn't give out light but it planets orbit it. It doesn't kill other stars as well</h3>
+        <h3>d. It's something that gives out particles</h3>
+        <button class="answer" id="correct2" onclick="chks()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>How old is the Earth?</h2>
+        <h3>a. 1.593 billion years</h3>
+        <h3>b. 74.327 million years</h3>
+        <h3>c. 4.543 billion years</h3>
+        <h3>d. 2020</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="correct3" onclick="chkt()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>How many confirmed moons does saturn have?</h2>
+        <h3>a. 154</h3>
+        <h3>b. 62</h3>
+        <h3>c. 41</h3>
+        <h3>d. 342</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="correct4" onclick="chkfr()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>How many dwarf planets are there in our solar system?</h2>
+        <h3>a. 1</h3>
+        <h3>b. 9</h3>
+        <h3>c. 3</h3>
+        <h3>d. 5</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="correct5" onclick="chkfv()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>True or False: The Earth is Flat</h2>
+        <button class="answer" id="wrong" onclick="wrong()">True</button>
+        <button class="answer" id="correct6" onclick="chksx()">False</button>
+    </div>
+
+    <div class="info">
+        <h2>Which galaxy are we in?</h2>
+        <h3>a. Andromeda</h3>
+        <h3>b. Tadpole</h3>
+        <h3>c. Milky Way</h3>
+        <h3>d. Whirlpool</h3>
+        <h3>e. Triangulum</h3>
+        <h3>f. Sombrero</h3>
+        <h3>g. Pinwheel</h3>
+        <h3>h. Black Eye</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="correct7" onclick="chksv()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+        <button class="answer" id="wrong" onclick="wrong()">E</button>
+        <button class="answer" id="wrong" onclick="wrong()">F</button>
+        <button class="answer" id="wrong" onclick="wrong()">G</button>
+        <button class="answer" id="wrong" onclick="wrong()">H</button>
+    </div>
+
+    <div class="info">
+        <h2>Was Pluto a planet before?</h2>
+        <h3>a. Yes</h3>
+        <h3>b. No</h3>
+        <h3>c. Some people thought it was but not everyone</h3>
+        <h3>d. When we discovered Pluto, it was already a dwarf planet so we don't know</h3>
+        <button class="answer" id="correct8" onclick="chke()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="wrong" onclick="wrong()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>What is the biggest known star?</h2>
+        <h3>a. Our sun</h3>
+        <h3>b. UY Scuti</h3>
+        <h3>c. VY Canis Marjoris</h3>
+        <h3>d. WOH G64</h3>
+        <button class="answer" id="wrong" onclick="wrong()">A</button>
+        <button class="answer" id="wrong" onclick="wrong()">B</button>
+        <button class="answer" id="correct9" onclick="chkn()">C</button>
+        <button class="answer" id="wrong" onclick="wrong()">D</button>
+    </div>
+
+    <div class="info">
+        <h2>True or False: The Milky Way Galaxy and Andromeda Galaxy will hit one day</h2>
+        <button class="answer" id="correct10" onclick="chktn()">True</button>
+        <button class="answer" id="wrong" onclick="wrong()">False</button>
+    </div><br><br>
+
+    <input class="viewscore" type="button" onclick="final()" value="Done">
+
+    <div style="margin-top: 50%;" class="info" id="viewscore">
+        <h1>You Got <span id="finalscore"></span> out of 10</h1>
+        <h2 id="finalwords"></h2>
+    </div>
+
+    <script>
+        const showscore = document.querySelector("#score");
+        const finalscore = document.querySelector("#finalscore");
+        const finalwords = document.querySelector("#finalwords");
+        let score = 0;
+        showscore.innerHTML = score;
+
+        function chkf() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct1").disabled = true;
+        }
+
+        function chks() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct2").disabled = true;
+        }
+
+        function chkt() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct3").disabled = true;
+        }
+
+        function chkfr() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct4").disabled = true;
+        }
+
+        function chkfv() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct5").disabled = true;
+        }
+
+        function chksx() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct6").disabled = true;
+        }
+
+        function chksv() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct7").disabled = true;
+        }
+
+        function chke() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct8").disabled = true;
+        }
+
+        function chkn() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct9").disabled = true;
+        }
+
+        function chktn() {
+            score++;
+            showscore.innerHTML = score;
+
+            var correct = document.getElementById("correct10").disabled = true;
+        }
+
+        function wrong() {
+            var wrong = document.getElementById("wrong");
+
+            score--;
+            showscore.innerHTML = score;
+
+            if (score === -1) {
+                score = 0;
+                showscore.innerHTML = score;
+            }
+        }
+
+        function final() {
+            location.href = "astron.html#viewscore";
+            finalscore.innerHTML = score;
+
+            if (score <= 4) {
+                finalwords.innerHTML = "you know nothing about Earth or anything in space man, learn more stuff."
+            }
+
+            else if (score == 5) {
+                finalwords.innerHTML = "huh, average. Your like all American teens or Flat Earthers."
+            }
+
+            else if (score == 6) {
+                finalwords.innerHTML = "yo, you are a normal human."
+            }
+
+            else if (score == 7) {
+                finalwords.innerHTML = "yo, you are a normal human."
+            }
+
+            else if (score == 8) {
+                finalwords.innerHTML = "yo, you are a normal human."
+            }
+
+            else if (score == 9) {
+                finalwords.innerHTML = "yo, you are a normal human."
+            }
+
+            else if (score == 10) {
+                finalwords.innerHTML = "Ok, no normal human can get this all right. U crazy."
+            }
+        }
+    </script>
+</body>
+</html>
